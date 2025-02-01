@@ -1,0 +1,277 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    grid-template-rows: repeat(20, auto); 
+    height: 100vh; 
+    width: 100vw; 
+    overflow: hidden; 
+    background: linear-gradient(to right, rgb(204, 207, 207),rgb(249, 251, 250),rgb(191, 197, 196));
+    font-family:'Poppins',sans-serif !important;
+    transition: grid-template-columns 0.4s ease-in-out;
+    overflow: scroll;
+}
+
+main {
+    grid-column: 1 / 13;
+    grid-row: 1 / 11;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    transition: grid-column 0.4s ease-in-out;
+}
+
+#maintitle {
+    grid-column: 1 / 10;
+    grid-row: 1 / 2;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.maincontainer {
+    grid-column: 1 / 10;
+    grid-row: 2 / 3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.budgetnumber {
+    display: flex;
+    width: 50rem;
+    justify-content: space-between;
+    gap: 14rem;
+    background-color: #fff9f9;
+    width: fit-content;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.number {
+    justify-content:space-between;
+    align-content
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+ 
+}
+
+.amountcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#amountearned {
+    color: green;
+}
+
+#amountspent {
+    color: red;
+}
+.midcontainer {
+    display: flex;
+    grid-column: 1 / 12;
+    grid-row: 3 / 11;
+    justify-content: center;
+    column-gap: 5rem;
+    margin-top: 1rem;
+    
+}
+
+.incomecontainer, .expensescontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+}
+
+
+.incomecontainer {
+    grid-column: 2 / 6;
+    grid-row: 3 / 11;
+    background-color: #fff9f9;;
+    width: 24rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    height: 75vh;
+}
+
+
+.expensescontainer {
+    grid-column: 6 / 10;
+    grid-row: 3 / 11;
+    background-color: #fff9f9;;
+    width: 24rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.1);
+    height: 75vh;
+   
+}
+
+.incomecontainer h2 {
+    text-align: center;
+    padding-bottom: 0.5rem;
+    padding-top: 2rem;
+    color: green;
+    
+}
+
+.expensescontainer h2 {
+    text-align: center;
+    padding-bottom: 0.5rem;
+    padding-top: 2rem;
+    color: red;
+}
+
+.incomecontainer, .expensescontainer {
+    overflow-y: scroll;
+    max-height: 75vh; 
+}
+
+.incomecontainer::-webkit-scrollbar, .expensescontainer::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.itemincome, .itemexpenses {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    padding-left: 1rem;  
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background-color: rgb(195, 199, 199);
+    gap: 2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.itemincome h4, .itemexpenses h4 {
+    margin: 0;
+    font-weight: bold;
+    text-align: left;  
+}
+
+.incomeamount, .expensesamount {
+    margin-right: 1rem;  
+}
+
+.removebtn {
+    width: 3rem;  
+    height: 1.6rem; 
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(to left, rgb(209, 236, 231) 50%, rgb(239, 7, 7) 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: background-position 0.4s ease-in-out;
+    padding: 0;
+    opacity: 0;
+    transition: background-position 0.4s ease-in-out, opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.removebtn:hover {
+    background-position: left;
+}
+
+.itemincome:hover .removebtn, .itemexpenses:hover .removebtn {
+    opacity: 1;
+    pointer-events: auto;
+}
+section {
+    display: grid;
+    grid-row: 11 / 20;
+}
+
+aside {
+    grid-column: 9 / 13;
+    grid-row: 1 / 11;
+    flex: 1;
+    padding: 20px;
+    background-color: #ddd;
+    position: fixed; 
+    right: -300px; 
+    height: 100vh;
+    transition: right 0.3s ease-in-out;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+aside:hover {
+    right: 0px;
+    width: 60vh;
+}
+
+main:has(+ aside:hover) {
+    grid-column: 1 / 9;
+}
+aside h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.inputarea {
+    display: flex;
+    padding-bottom: 1rem;
+    opacity: 1;
+    height: 3rem;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+.inputarea #description, .inputarea #amount, #addincome, #addexpenses {
+    outline: none;
+    cursor: pointer;
+}
+.inputarea #description {
+    width: 100%;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 0px;
+    text-align: center; 
+}
+.inputarea #amount {
+    width: 30%;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 0px;
+    text-align: center;
+}
+.buttoncontainer {
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#addincome, #addexpenses {
+    width: 40%;
+    height: 3rem;
+    border: 0;
+    border-radius: 20px;
+}
+#addincome:hover {
+    background-color: rgb(96, 223, 42);
+    transition: background-color 0.3s ease-in-out 0.1s;
+}
+#addexpenses:hover {
+    background-color: rgb(217, 63, 63);
+    transition: background-color 0.3s ease-in-out 0.1s;
+}
